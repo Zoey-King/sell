@@ -1,17 +1,23 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    <img src="./assets/logo.png" />
+    <HelloWorld />
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld'
+import axios from 'axios'
 
 export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  mounted () {
+    axios.get('/api/goods').then((res) => {
+      console.log(res)
+    })
   }
 }
 </script>
