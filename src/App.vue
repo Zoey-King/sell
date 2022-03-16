@@ -1,34 +1,40 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png" />
-    <HelloWorld />
-  </div>
+    <div>
+        <header1xx></header1xx>
+        <div class="tab">
+            <div class="tab-item">
+                <router-link to="/goods">商品</router-link>
+            </div>
+            <div class="tab-item">
+                <router-link to="/ratings">评论</router-link>
+            </div>
+            <div class="tab-item">
+                <router-link to="/seller">xx</router-link>
+            </div>
+        </div>
+        <router-view></router-view>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-import axios from 'axios'
-
+import header1 from './components/header/header.vue'
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  },
-  mounted () {
-    axios.get('/api/goods').then((res) => {
-      console.log(res)
-    })
-  }
+    components: {
+        'header1xx': header1
+    }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+<style lang="stylus" rel="stylesheet/stylus">
+.tab {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+}
+
+.tab-item {
+  flex: 1;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
